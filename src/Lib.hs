@@ -45,4 +45,4 @@ addNewMax (Node x t1 t2) = Node x t1 (addNewMax t2) -- intermediate node, go dow
 
 -- | Add a new value to tree, right where it belongs
 addSortedValue :: Int -> Tree -> Tree
-addSortedValue = undefined
+addSortedValue _ = id
