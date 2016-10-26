@@ -8,6 +8,7 @@ module Lib
   , isSortedTree
   , addNewMax
     -- * Extra implementations
+  , isSortedTree'
   , addSortedValue
   ) where
 
@@ -29,6 +30,11 @@ isSortedTree (Node x leftSubtree rightSubtree) minVal maxVal =
     let leftSorted  = isSortedTree leftSubtree minVal x
         rightSorted = isSortedTree rightSubtree x maxVal
     in x >= minVal && x< maxVal && leftSorted && rightSorted
+
+-- | Is the tree sorted in order?
+-- | Does not require min and max bound
+isSortedTree' :: Tree -> Bool
+isSortedTree' t = isSortedTree t minBound maxBound
 
 -- | Add a new max element to tree
 -- | Will go down rightmost path to Leaf
