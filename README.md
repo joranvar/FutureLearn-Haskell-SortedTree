@@ -1,4 +1,4 @@
-TennisKata
+SortedTree
 ==========
 
 New Haskell project using stack template `tasty-travis`.

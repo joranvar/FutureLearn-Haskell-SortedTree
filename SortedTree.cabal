@@ -1,4 +1,4 @@
-name:                TennisKata
+name:                SortedTree
 version:             0.1.0.0
 synopsis:            Initial project template from stack
 description:         Please see README.md
@@ -8,8 +8,8 @@ license-file:        LICENSE
 author:              Bart Post
 maintainer:          bart.post@gmail.com
 copyright:           © 2016 Bart Post
-homepage:            https://github.com/joranvar/TennisKata
-bug-reports:         https://github.com/joranvar/TennisKata/issues
+homepage:            https://github.com/joranvar/FutureLearn-Haskell-SortedTree
+bug-reports:         https://github.com/joranvar/FutureLearn-Haskell-SortedTree/issues
 
 category:            Test
 build-type:          Simple
@@ -23,7 +23,7 @@ extra-source-files:
 
 source-repository head
   type:     git
-  location: https://github.com/joranvar/TennisKata
+  location: https://github.com/joranvar/FutureLearn-Haskell-SortedTree
 
 library
   default-language:  Haskell2010
@@ -33,15 +33,15 @@ library
   build-depends:     base >= 4.8 && < 5
                    , hlint
 
-executable TennisKata-exe
+executable SortedTree-exe
   default-language:  Haskell2010
   ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
   hs-source-dirs:    src-exe
   main-is:           Main.hs
   build-depends:     base >= 4.8 && < 5
-                   , TennisKata
+                   , SortedTree
 
-test-suite TennisKata-test
+test-suite SortedTree-test
   type:              exitcode-stdio-1.0
   default-language:  Haskell2010
   ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
@@ -52,9 +52,9 @@ test-suite TennisKata-test
                    , tasty-hunit >= 0.9
                    , tasty-smallcheck >= 0.8
                    , smallcheck
-                   , TennisKata
+                   , SortedTree
 
-test-suite TennisKata-doctest
+test-suite SortedTree-doctest
   type:              exitcode-stdio-1.0
   default-language:  Haskell2010
   ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
@@ -64,9 +64,9 @@ test-suite TennisKata-doctest
                    , doctest >=0.10
                    , Glob >= 0.7
                    , QuickCheck >= 2.5
-                   , TennisKata
+                   , SortedTree
 
-benchmark TennisKata-benchmark
+benchmark SortedTree-benchmark
   type:              exitcode-stdio-1.0
   default-language:  Haskell2010
   ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
@@ -74,4 +74,4 @@ benchmark TennisKata-benchmark
   main-is:           Main.hs
   build-depends:     base >= 4.8 && < 5
                    , criterion >= 1.1
-                   , TennisKata
+                   , SortedTree
