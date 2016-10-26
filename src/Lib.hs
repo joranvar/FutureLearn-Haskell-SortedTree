@@ -7,6 +7,8 @@ module Lib
   , treeDepth
   , isSortedTree
   , addNewMax
+    -- * Extra implementations
+  , addSortedValue
   ) where
 
 data Tree = Leaf | Node Int Tree Tree
@@ -34,3 +36,7 @@ addNewMax :: Tree -> Tree
 addNewMax Leaf = Node 0 Leaf Leaf  -- input tree with no nodes
 addNewMax (Node x t1 Leaf) = Node x t1 (Node (x+1) Leaf Leaf)  -- this is the rightmost Node
 addNewMax (Node x t1 t2) = Node x t1 (addNewMax t2) -- intermediate node, go down right subtree
+
+-- | Add a new value to tree, right where it belongs
+addSortedValue :: Int -> Tree -> Tree
+addSortedValue = undefined
