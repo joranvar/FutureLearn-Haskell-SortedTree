@@ -25,8 +25,9 @@ tests =
 
 scTests :: [TestTree]
 scTests =
-  [ testProperty "id x == x" $
-    \x -> id (x::Int) == x
+  [ testProperty "Adding value to a sorted tree keeps it sorted" $
+    \value treeValues -> let tree = foldl (flip addSortedValue) Leaf (treeValues::[Int])
+                        in isSortedTree' tree && (isSortedTree' . addSortedValue value) tree
   ]
 
 huTests :: [TestTree]
