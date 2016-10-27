@@ -29,7 +29,7 @@ isSortedTree Leaf _ _ = True
 isSortedTree (Node x leftSubtree rightSubtree) minVal maxVal =
     let leftSorted  = isSortedTree leftSubtree minVal x
         rightSorted = isSortedTree rightSubtree x maxVal
-    in x >= minVal && x< maxVal && leftSorted && rightSorted
+    in x >= minVal && x < maxVal && leftSorted && rightSorted
 
 -- | Is the tree sorted in order?
 -- | Does not require min and max bound
