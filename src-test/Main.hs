@@ -11,6 +11,9 @@ import Lib
 -- instance (Monad m, Enum a, Bounded a) => Serial m a where
 --   series = generate (\d -> take d [minBound .. maxBound])
 
+import Control.Arrow ((&&&))
+import Data.List (sort)
+
 instance (Monad m) => Serial m Tree where
   series = cons0 Leaf \/ cons3 Node
 
@@ -28,6 +31,8 @@ scTests =
   [ testProperty "Adding value to a sorted tree keeps it sorted" $
     \value treeValues -> let tree = foldl (flip addSortedValue) Leaf (treeValues::[Int])
                         in isSortedTree' tree && (isSortedTree' . addSortedValue value) tree
+  , testProperty "Adding values to a sorted tree, then calling toList, returns the original values, sorted" $
+    uncurry (==) . (toList . foldl (flip addSortedValue) Leaf &&& sort)
   ]
 
 huTests :: [TestTree]
