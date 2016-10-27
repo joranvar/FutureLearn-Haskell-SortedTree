@@ -10,6 +10,7 @@ module Lib
     -- * Extra implementations
   , isSortedTree'
   , addSortedValue
+  , toList
   ) where
 
 data Tree = Leaf | Node Int Tree Tree
@@ -46,3 +47,8 @@ addNewMax (Node x t1 t2) = Node x t1 (addNewMax t2) -- intermediate node, go dow
 -- | Add a new value to tree, right where it belongs
 addSortedValue :: Int -> Tree -> Tree
 addSortedValue _ = id
+
+-- | Flatten the tree to a list
+toList :: Tree -> [Int]
+toList Leaf = []
+toList (Node x l r) = toList l ++ [x] ++ toList r
