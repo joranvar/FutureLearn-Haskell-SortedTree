@@ -46,7 +46,8 @@ addNewMax (Node x t1 t2) = Node x t1 (addNewMax t2) -- intermediate node, go dow
 
 -- | Add a new value to tree, right where it belongs
 addSortedValue :: Int -> Tree -> Tree
-addSortedValue _ = id
+addSortedValue x Leaf = Node x Leaf Leaf
+addSortedValue x (Node y r l) = if x < y then (Node y (addSortedValue x r) l) else (Node y r (addSortedValue x l))
 
 -- | Flatten the tree to a list
 toList :: Tree -> [Int]
